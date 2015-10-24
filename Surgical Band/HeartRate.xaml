@@ -9,7 +9,15 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <MediaElement x:Name="mediaElement"></MediaElement>
-        <Rectangle Fill="#FFDC1928" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="1920" />
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="15,15,0,0" TextWrapping="Wrap" Text="Patient Data" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe WP" FontWeight="Bold" />
+        <Rectangle Fill="#FFDC1928" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="1920" />
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="25,20,0,0" TextWrapping="Wrap" Text="Patient Data" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="20" />
+        <Rectangle Fill="#FFDC1928" HorizontalAlignment="Left" Height="290" Margin="185,115,0,0" VerticalAlignment="Center" Width="260"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="265,90,0,0" VerticalAlignment="Center" Width="100" Stretch="UniformToFill" Source="Assets/heart.png"/>
+
+        <Rectangle Fill="#FFDC1928" HorizontalAlignment="Center" Height="290" Margin="358,115,0,0" VerticalAlignment="Center" Width="260"/>
+        <TextBlock x:Name="hReading" HorizontalAlignment="Left" Margin="285,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="20" />
+        <TextBlock x:Name="tReading" HorizontalAlignment="Center" Margin="358,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="20" />
+        <Image x:Name="image_Copy" HorizontalAlignment="Center" Height="100" Margin="358,90,0,0" VerticalAlignment="Center" Width="100" Stretch="UniformToFill" Source="Assets/Square44x44Logo.png"/>
+
     </Grid>
 </Page>

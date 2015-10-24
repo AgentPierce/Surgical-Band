@@ -85,8 +85,10 @@ namespace Surgical_Band
                     await bandClient.SensorManager.SkinTemperature.StartReadingsAsync();
 
                     SpeechSynthesizer synt = new SpeechSynthesizer();
-                    SpeechSynthesisStream syntStream = await synt.SynthesizeTextToStreamAsync("Heart Rate is: " + hr+ " per minute and Body Temperature is: "+bodyTemp+" degrees");
+                    SpeechSynthesisStream syntStream = await synt.SynthesizeTextToStreamAsync("Heart Rate is: " + hr+ " per minute and Skin Temperature is: "+bodyTemp+" degrees");
                     mediaElement.SetSource(syntStream, syntStream.ContentType);
+                    hReading.Text = hr + " /min";
+                    tReading.Text = bodyTemp + " C";
                 }
             }
             catch (Exception ex)

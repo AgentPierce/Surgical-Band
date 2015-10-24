@@ -30,7 +30,7 @@ namespace Surgical_Band
         private IBandClient client;
         SpeechSynthesizer synth = new SpeechSynthesizer();
         private bool WasLocked;
-
+        DateTime LastBandWarning = new DateTime();
         public Details()
         {
             this.InitializeComponent();
@@ -90,7 +90,14 @@ namespace Surgical_Band
                 PatientHR.Text = "Aquiring...";
                 if (WasLocked)
                 {
-                    Speak("Warning: Patient has removed their Band.");
+                    if (DateTime.Now.Subtract(LastBandWarning).TotalSeconds > 10)
+                    {
+                        var WorkflowFrame = ((Window.Current.Content as Frame).Content as MainPage).WorkflowFrame;
+                        if (WorkflowFrame.Content is EquipTrack || WorkflowFrame.Content is RecordConsent)
+                            return;
+                        Speak("Warning: Patient has removed their Band.");
+                        LastBandWarning = DateTime.Now;
+                    }
                     PatientHR.Text = "Lost";
                 }
             }

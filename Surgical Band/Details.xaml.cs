@@ -48,9 +48,22 @@ namespace Surgical_Band
             client = await BandClientManager.Instance.ConnectAsync(bandinfo);
             //client.SensorManager.HeartRate.ReadingChanged += BandInitialized;
             client.SensorManager.HeartRate.ReadingChanged += HeartRate_ReadingChanged;
+            client.SensorManager.SkinTemperature.ReadingChanged += SkinTemperature_ReadingChanged;
             if (client.SensorManager.HeartRate.GetCurrentUserConsent() != UserConsent.Granted)
                 await client.SensorManager.HeartRate.RequestUserConsentAsync();
             await client.SensorManager.HeartRate.StartReadingsAsync();
+            await client.SensorManager.SkinTemperature.StartReadingsAsync();
+        }
+
+        private async void SkinTemperature_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandSkinTemperatureReading> e)
+        {
+            if (!Dispatcher.HasThreadAccess)
+            {
+                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, delegate { SkinTemperature_ReadingChanged(sender, e); });
+                return;
+            }
+
+            PatientSkinTemp.Text = e.SensorReading.Temperature.ToString()+" C";
         }
 
         private void BandInitialized(object sender, BandSensorReadingEventArgs<IBandHeartRateReading> e)
@@ -58,18 +71,23 @@ namespace Surgical_Band
             Speak("Band Initialized. Current heart rate is {0}.", e.SensorReading.HeartRate);
             client.SensorManager.HeartRate.ReadingChanged -= BandInitialized;
         }
+        private void BandInitialized(object sender, BandSensorReadingEventArgs<IBandSkinTemperatureReading> e)
+        {
+            Speak("Band Initialized. Current heart rate is {0}.", e.SensorReading.Temperature);
+            client.SensorManager.SkinTemperature.ReadingChanged -= BandInitialized;
+        }
 
-        private void HeartRate_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandHeartRateReading> e)
+        private async void HeartRate_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandHeartRateReading> e)
         {
             if (!Dispatcher.HasThreadAccess)
             {
-                Dispatcher.RunAsync(CoreDispatcherPriority.Normal, delegate { HeartRate_ReadingChanged(sender, e); });
+                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, delegate { HeartRate_ReadingChanged(sender, e); });
                 return;
             }
             if (e.SensorReading.Quality == HeartRateQuality.Acquiring)
-                PatientHR.Text = "Aquiring Heart Rate";
+                PatientHR.Text = "Aquiring...";
             else
-                PatientHR.Text = e.SensorReading.HeartRate.ToString();
+                PatientHR.Text = e.SensorReading.HeartRate.ToString() + " /Min";
         }
 
         public async void Speak(string text, params object[] args)

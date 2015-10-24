@@ -13,16 +13,24 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <TextBlock FontSize="48" Text="Patient ID"/>
-            <TextBlock FontSize="48" Text="Full Name"/>
-            <TextBlock FontSize="48" Text="Blood Type"/>
-            <TextBlock FontSize="48" Text="Heart Rate"/>
+            <TextBlock x:Name="textBlock" Height="70" Padding="5,10,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Patient Data" VerticalAlignment="Top" Foreground="#FFdc1928" FontWeight="Bold" FontSize="30" />
+            <Rectangle Fill="#FFDC1928" HorizontalAlignment="Left" Height="2" VerticalAlignment="Top" Width="1920" />
+            <TextBlock FontSize="36" Text="Patient ID"/>
+            <TextBlock FontSize="36" Text="Full Name"/>
+            <TextBlock FontSize="36" Text="Age" />
+            <TextBlock FontSize="36" Text="Blood Type"/>
+            <TextBlock FontSize="36" Text="Heart Rate"/>
+            <TextBlock FontSize="36" Text="Skin Temp"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <TextBlock Name="PatientID" FontSize="48" Text="00000000"/>
-            <TextBlock Name="PatientName" FontSize="48" Text="John Smith"/>
-            <TextBlock Name="PatientBlood" FontSize="48" Text="O+"/>
-            <TextBlock Name="PatientHR" FontSize="48" Text="--"/>
+            <TextBlock x:Name="textBlock2" Height="70" Padding="5,20,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#FFdc1928" FontWeight="Bold" FontSize="20" />
+            <Rectangle Fill="#FFDC1928" HorizontalAlignment="Left" Height="2" VerticalAlignment="Top" Width="1920" />
+            <TextBlock Name="PatientID" FontSize="36" Text="000S00117"/>
+            <TextBlock Name="PatientName" FontSize="36" Text="John Spartan"/>
+            <TextBlock Name="PatientAge" FontSize="36" Text="47" />
+            <TextBlock Name="PatientBlood" FontSize="36" Text="O+"/>
+            <TextBlock Name="PatientHR" FontSize="36" Text="--"/>
+            <TextBlock Name="PatientSkinTemp" FontSize="36" Text="--" />
         </StackPanel>
     </Grid>
 </Page>

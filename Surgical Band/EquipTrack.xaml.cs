@@ -60,26 +60,32 @@ namespace Surgical_Band
                 case "sponge in":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     spongeIn++;
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => spongInC.Text = spongeIn.ToString());
                     break;
                 case "sponge out":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     spongeOut++;
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => spongOutC.Text = spongeOut.ToString());
                     break;
                 case "instrument in":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     instruIn++;
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => instInC.Text = instruIn.ToString());
                     break;
                 case "needle in":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     needleIn++;
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => needleInC.Text = needleIn.ToString());
                     break;
                 case "instrument out":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     instruOut++;
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => instOutC.Text = instruOut.ToString());
                     break;
                 case "needle out":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     needleOut++;
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => needleOutC.Text = needleOut.ToString());
                     break;
                 case "going to close":
                     if (spongeIn != spongeOut)

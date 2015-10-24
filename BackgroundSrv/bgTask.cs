@@ -39,7 +39,7 @@ namespace BackgroundSrv
                         userMessage.SpokenMessage = "Here is the Patient Data";
 
                         var responseMessage = new VoiceCommandUserMessage();
-                        responseMessage.DisplayMessage = responseMessage.SpokenMessage = "Patient Name: John Spartan\nAge: 47\nBlood Type: O+";
+                        responseMessage.DisplayMessage = responseMessage.SpokenMessage = "Patient Name: John Spartan\nAge: 47\nBlood Type: O+\nPatient ID: 000S00117";
 
                         response = VoiceCommandResponse.CreateResponse(responseMessage);
                         await voiceServiceConnection.ReportSuccessAsync(response);

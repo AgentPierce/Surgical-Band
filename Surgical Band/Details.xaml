@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="Surgical_Band.Details"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Surgical_Band"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Grid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <TextBlock FontSize="48" Text="Patient ID"/>
+            <TextBlock FontSize="48" Text="Full Name"/>
+            <TextBlock FontSize="48" Text="Blood Type"/>
+            <TextBlock FontSize="48" Text="Heart Rate"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBlock Name="PatientID" FontSize="48" Text="00000000"/>
+            <TextBlock Name="PatientName" FontSize="48" Text="John Smith"/>
+            <TextBlock Name="PatientBlood" FontSize="48" Text="O+"/>
+            <TextBlock Name="PatientHR" FontSize="48" Text="--"/>
+        </StackPanel>
+    </Grid>
+</Page>

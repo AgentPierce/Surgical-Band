@@ -26,6 +26,9 @@ namespace Surgical_Band
     public sealed partial class MainPage : Page
     {
         private int noteCounter = 0;
+
+        public Frame WorkflowFrame { get { return workflowFrame; } }
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -36,6 +39,7 @@ namespace Surgical_Band
         {
             var storageFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///vcd.xml"));
             await VoiceCommandDefinitionManager.InstallCommandDefinitionsFromStorageFileAsync(storageFile);
+            DetailsFrame.Navigate(typeof(Details));
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -46,11 +50,6 @@ namespace Surgical_Band
                 listenIn();
                 noteCounter++;
             }
-        }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         private async void Con_Result(SpeechContinuousRecognitionSession sender, SpeechContinuousRecognitionResultGeneratedEventArgs args)
@@ -80,18 +79,5 @@ namespace Surgical_Band
             mediaElement.SetSource(syntStream, syntStream.ContentType);
         }
 
-        private async void lineRecog() {
-            SpeechRecognizer speechRecognizer = new SpeechRecognizer();
-
-            // Compile the default dictionary
-            SpeechRecognitionCompilationResult compilationResult =
-                                                    await speechRecognizer.CompileConstraintsAsync();
-
-            // Start recognizing
-            // Note: you can also use RecognizeWithUIAsync()
-            SpeechRecognitionResult speechRecognitionResult = await speechRecognizer.RecognizeWithUIAsync();
-            string result = speechRecognitionResult.Text;
-            this.textBlock.Text = result;
-        }
     }
 }

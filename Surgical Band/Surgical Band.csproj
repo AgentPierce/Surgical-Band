@@ -105,6 +105,9 @@
     <Compile Include="CheckList.xaml.cs">
       <DependentUpon>CheckList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Details.xaml.cs">
+      <DependentUpon>Details.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EquipTrack.xaml.cs">
       <DependentUpon>EquipTrack.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="CheckList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Details.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

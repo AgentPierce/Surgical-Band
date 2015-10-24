@@ -109,6 +109,7 @@ namespace Surgical_Band
         protected override void OnActivated(IActivatedEventArgs args)
         {
             Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame = (rootFrame.Content as MainPage).WorkflowFrame;
             if (args.Kind == ActivationKind.VoiceCommand) {
                 var commandArgs = args as VoiceCommandActivatedEventArgs;
                 SpeechRecognitionResult speechRecognitionResult = commandArgs.Result;

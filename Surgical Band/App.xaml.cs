@@ -124,6 +124,18 @@ namespace Surgical_Band
                     case "patientStat":
                         rootFrame.Navigate(typeof(HeartRate), "Stat");
                         break;
+                    case "trackEquip":
+                        rootFrame.Navigate(typeof(EquipTrack), "Track");
+                        break;
+                    case "takeNote":
+                        rootFrame.Navigate(typeof(MainPage), "Note");
+                        break;
+                    case "checklist":
+                        rootFrame.Navigate(typeof(CheckList), "checklist");
+                        break;
+                    case "verifyPat":
+                        rootFrame.Navigate(typeof(FaceComp), "FaceAPI");
+                        break;
                 }
             }
         }

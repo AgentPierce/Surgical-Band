@@ -25,6 +25,7 @@ namespace Surgical_Band
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private int noteCounter = 0;
         public MainPage()
         {
             this.InitializeComponent();
@@ -37,6 +38,16 @@ namespace Surgical_Band
             await VoiceCommandDefinitionManager.InstallCommandDefinitionsFromStorageFileAsync(storageFile);
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (e.Parameter.ToString() == "Note")
+            {
+                listenIn();
+                noteCounter++;
+            }
+        }
+
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             
@@ -44,16 +55,17 @@ namespace Surgical_Band
 
         private async void Con_Result(SpeechContinuousRecognitionSession sender, SpeechContinuousRecognitionResultGeneratedEventArgs args)
         {
-            if (args.Result.Text == "hello")
+            if (args.Result.Text == "note finished")
             {
-                await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () => talkBack());
+                await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("note recorded"));
+                await sender.StopAsync();
                 //SetListening(true);
             }
         }
 
         private async void listenIn() {
             SpeechRecognizer speechRecognizer = new SpeechRecognizer();
-            speechRecognizer.Constraints.Add(new SpeechRecognitionListConstraint(new List<String>() { "hello" }));
+            speechRecognizer.Constraints.Add(new SpeechRecognitionListConstraint(new List<String>() { "note finished" }));
 
             SpeechRecognitionCompilationResult comResult = await speechRecognizer.CompileConstraintsAsync();
 
@@ -62,9 +74,9 @@ namespace Surgical_Band
             await speechRecognizer.ContinuousRecognitionSession.StartAsync();
         }
 
-        private async void talkBack() {
+        private async void talkBack(String content) {
             SpeechSynthesizer synt = new SpeechSynthesizer();
-            SpeechSynthesisStream syntStream = await synt.SynthesizeTextToStreamAsync("I'm Cortana");
+            SpeechSynthesisStream syntStream = await synt.SynthesizeTextToStreamAsync(content);
             mediaElement.SetSource(syntStream, syntStream.ContentType);
         }
 

@@ -18,9 +18,12 @@
             <TextBlock FontSize="36" Text="Patient ID"/>
             <TextBlock FontSize="36" Text="Full Name"/>
             <TextBlock FontSize="36" Text="Age" />
+            <TextBlock FontSize="36" Text="Sex" />
             <TextBlock FontSize="36" Text="Blood Type"/>
+            <TextBlock FontSize="36" Text="Known Allergies"/>
             <TextBlock FontSize="36" Text="Heart Rate"/>
             <TextBlock FontSize="36" Text="Skin Temp"/>
+            
         </StackPanel>
         <StackPanel Grid.Column="1" Height="800">
             <TextBlock x:Name="textBlock2" Height="70" Padding="5,20,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#FFdc1928" FontWeight="Bold" FontSize="20" />
@@ -28,7 +31,9 @@
             <TextBlock Name="PatientID" FontSize="36" Text="000S00117"/>
             <TextBlock Name="PatientName" FontSize="36" Text="John Spartan"/>
             <TextBlock Name="PatientAge" FontSize="36" Text="47" />
+            <TextBlock Name="PatientSex" FontSize="36" Text="Male"/>
             <TextBlock Name="PatientBlood" FontSize="36" Text="O+"/>
+            <TextBlock Name="PatientAlergies" FontSize="36" Text="None known"/>
             <TextBlock Name="PatientHR" FontSize="36" Text="--"/>
             <TextBlock Name="PatientSkinTemp" FontSize="36" Text="--" />
         </StackPanel>

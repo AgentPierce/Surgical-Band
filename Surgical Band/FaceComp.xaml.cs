@@ -77,7 +77,7 @@ namespace Surgical_Band
             if (currentFace.Count() == 1) {
                 foreach (var detectedFace in currentFace)
                 {
-                    talkBack(detectedFace.FaceId.ToString());
+                    //talkBack(detectedFace.FaceId.ToString());
                     compareFaces(detectedFace.FaceId.ToString());
                 }
             }   
@@ -87,11 +87,27 @@ namespace Surgical_Band
         {
             try
             {
-                // initial data. 
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.projectoxford.ai/face/v0/verifications");
-                request.Headers["Ocp-Apim-Subscription-Key"] = "45b56e2595034c439a1cd41d34e76cb2";
-                request.Method = "POST";
-                //HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
+                var gizmo = new Faces() { face1 = patFaceID, face2 = patFaceID };
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri("https://api.projectoxford.ai/face/v0/verifications");
+
+                // Add an Accept header for JSON format.
+                client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "45b56e2595034c439a1cd41d34e76cb2");
+
+                // List data response.
+                HttpResponseMessage response = await client.PostAsJsonAsync(new Uri("https://api.projectoxford.ai/face/v0/verifications"), gizmo); // Blocking call!
+                if (response.IsSuccessStatusCode)
+                {
+                    // Parse the response body. Blocking!
+                    var dataObjects = response.Content.ReadAsAsync<IEnumerable<string>>().Result;
+                    foreach (var d in dataObjects)
+                    {
+
+                    }
+
+                }
             }
             catch (Exception ex)
             {
@@ -115,5 +131,10 @@ namespace Surgical_Band
             mediaElement.SetSource(syntStream, syntStream.ContentType);
         }
 
+    }
+
+    public class Faces {
+        public string face1 { get; set; }
+        public string face2 { get; set; }
     }
 }

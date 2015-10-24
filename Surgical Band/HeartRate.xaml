@@ -9,6 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <MediaElement x:Name="mediaElement"></MediaElement>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="107,151,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Rectangle Fill="#FFDC1928" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="1920" />
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="15,15,0,0" TextWrapping="Wrap" Text="Patient Data" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe WP" FontWeight="Bold" />
     </Grid>
 </Page>

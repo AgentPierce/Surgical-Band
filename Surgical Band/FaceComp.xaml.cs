@@ -91,6 +91,7 @@ namespace Surgical_Band
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.projectoxford.ai/face/v0/verifications");
                 request.Headers["Ocp-Apim-Subscription-Key"] = "45b56e2595034c439a1cd41d34e76cb2";
                 request.Method = "POST";
+                //HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
             }
             catch (Exception ex)
             {

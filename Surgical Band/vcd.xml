@@ -8,6 +8,7 @@
       <Example> Surgical Band, Record the Consent </Example>
       <ListenFor RequireAppName="BeforeOrAfterPhrase"> Let's record consent </ListenFor>
       <ListenFor RequireAppName="BeforeOrAfterPhrase"> Record the consent </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> Please Record the consent </ListenFor>
       <Feedback> Recording Consent </Feedback>
       <Navigate/>
     </Command>

@@ -97,6 +97,7 @@
     <Content Include="Assets\health-sign.png" />
     <Content Include="Assets\heart.png" />
     <Content Include="Assets\microsoft_health.jpg" />
+    <Content Include="Assets\tick.png" />
     <Content Include="vcd.xml">
       <SubType>Designer</SubType>
     </Content>

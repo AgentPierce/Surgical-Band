@@ -17,7 +17,9 @@
             <Frame Name="DetailsFrame"/>
         </Page>
         <Page Grid.Column="1">
-            <Frame Name="workflowFrame" />
+            <Frame Name="workflowFrame">
+                <Image x:Name="tick1" HorizontalAlignment="Left" Height="300" Margin="18,85,0,0" VerticalAlignment="Top" Width="600" Source="Assets/band_long.png" Stretch="UniformToFill" />
+            </Frame>
         </Page>
 
     </Grid>

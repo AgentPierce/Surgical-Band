@@ -9,5 +9,18 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <MediaElement x:Name="mediaElement"></MediaElement>
+        <Rectangle Fill="#FFDC1928" HorizontalAlignment="Left" Height="72" VerticalAlignment="Top" Width="1920" />
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="25,23,0,0" TextWrapping="Wrap" Text="Sign In Checklist" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="20" />
+        <TextBlock x:Name="question1" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="75,85,0,0" TextWrapping="Wrap" Text="Recording" FontWeight="Bold" FontSize="28" Foreground="Black"/>
+        <TextBlock x:Name="question2" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="75,205,0,0" TextWrapping="Wrap" Text="Recording" FontWeight="Bold" FontSize="28" Foreground="Black"/>
+        <TextBlock x:Name="question3" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="75,325,0,0" TextWrapping="Wrap" Text="Recording" FontWeight="Bold" FontSize="28" Foreground="Black"/>
+        <TextBlock x:Name="question4" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="75,445,0,0" TextWrapping="Wrap" Text="Recording" FontWeight="Bold" FontSize="28" Foreground="Black"/>
+        <TextBlock x:Name="question5" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="75,595,0,0" TextWrapping="Wrap" Text="Recording" FontWeight="Bold" FontSize="28" Foreground="Black"/>
+        <Image x:Name="tick1" HorizontalAlignment="Left" Height="40" Margin="18,85,0,0" VerticalAlignment="Top" Width="40" Source="Assets/tick.png" Visibility="Collapsed" />
+        <Image x:Name="tick2" HorizontalAlignment="Left" Height="40" Margin="18,205,0,0" VerticalAlignment="Top" Width="40" Source="Assets/tick.png" Visibility="Collapsed"/>
+        <Image x:Name="tick3" HorizontalAlignment="Left" Height="40" Margin="18,325,0,0" VerticalAlignment="Top" Width="40" Source="Assets/tick.png" Visibility="Collapsed"/>
+        <Image x:Name="tick4" HorizontalAlignment="Left" Height="40" Margin="18,445,0,0" VerticalAlignment="Top" Width="40" Source="Assets/tick.png" Visibility="Collapsed"/>
+        <Image x:Name="tick5" HorizontalAlignment="Left" Height="40" Margin="18,595,0,0" VerticalAlignment="Top" Width="40" Source="Assets/tick.png" Visibility="Collapsed"/>
+
     </Grid>
 </Page>

@@ -21,6 +21,7 @@
             <TextBlock FontSize="36" Text="Sex" />
             <TextBlock FontSize="36" Text="Blood Type"/>
             <TextBlock FontSize="36" Text="Known Allergies"/>
+            <TextBlock FontSize="36" Text="Procedure"/>
             <TextBlock FontSize="36" Text="Heart Rate"/>
             <TextBlock FontSize="36" Text="Skin Temp"/>
             
@@ -34,6 +35,7 @@
             <TextBlock Name="PatientSex" FontSize="36" Text="Male"/>
             <TextBlock Name="PatientBlood" FontSize="36" Text="O+"/>
             <TextBlock Name="PatientAlergies" FontSize="36" Text="None known"/>
+            <TextBlock Name="PatientProcedure" FontSize="36" Text="Appendix Out"/>
             <TextBlock Name="PatientHR" FontSize="36" Text="--"/>
             <TextBlock Name="PatientSkinTemp" FontSize="36" Text="--" />
         </StackPanel>

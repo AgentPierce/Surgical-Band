@@ -94,7 +94,7 @@ namespace Surgical_Band
                     {
                         var WorkflowFrame = ((Window.Current.Content as Frame).Content as MainPage).WorkflowFrame;
                         if (WorkflowFrame.Content is EquipTrack || WorkflowFrame.Content is RecordConsent)
-                            return;
+                            return; // Surgery mode!
                         Speak("Warning: Patient has removed their Band.");
                         LastBandWarning = DateTime.Now;
                     }

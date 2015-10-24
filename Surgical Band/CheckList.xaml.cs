@@ -36,7 +36,7 @@ namespace Surgical_Band
         private int queCounter = 0;
         private string[] questionList = new string[]{ "Has the site been marked?",
                                                         "Does the patient have a known allergy?",
-                                                        "Has due consideration been given?",
+                                                        "Has due consideration been given to the allergy?",
                                                         "Does the patient have a difficult airway or aspiration risk?",
                                                         "Is the difficult airway equipment available?"};
 

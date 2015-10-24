@@ -16,6 +16,7 @@
       <Example> Surgical Band, Stop recording Consent </Example>
       <ListenFor RequireAppName="BeforeOrAfterPhrase"> Stop recording consent </ListenFor>
       <ListenFor RequireAppName="BeforeOrAfterPhrase"> Stop the consent </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> Stop recording </ListenFor>
       <Feedback> Finished Recording. Was that a correct patient consent? </Feedback>
       <Navigate/>
     </Command>

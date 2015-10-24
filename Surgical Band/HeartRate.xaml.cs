@@ -42,58 +42,29 @@ namespace Surgical_Band
                     //this.viewModel.StatusMessage = "This sample app requires a Microsoft Band paired to your device. Also make sure that you have the latest firmware installed on your Band, as provided by the latest Microsoft Health app.";
                     return;
                 }
-
                 // Connect to Microsoft Band.
                 using (IBandClient bandClient = await BandClientManager.Instance.ConnectAsync(pairedBands[0]))
                 {
-                    bool heartRateConsentGranted;
-                    var hr = "";
-                    var bodyTemp = "";
-                    // Check whether the user has granted access to the HeartRate sensor.
-                    if (bandClient.SensorManager.HeartRate.GetCurrentUserConsent() == UserConsent.Granted)
-                    {
-                        heartRateConsentGranted = true;
-                    }
-                    else
-                    {
-                        heartRateConsentGranted = await bandClient.SensorManager.HeartRate.RequestUserConsentAsync();
-                    }
+                    string steps = "";
 
-                    if (!heartRateConsentGranted)
-                    {
-                        //this.viewModel.StatusMessage = "Access to the heart rate sensor is denied.";
-                    }
-                    else
-                    {
-                        int samplesReceived = 0; // the number of HeartRate samples received
-                        
-                        // Subscribe to HeartRate data.
-                        bandClient.SensorManager.HeartRate.ReadingChanged += (s, args) => { samplesReceived++; hr = args.SensorReading.HeartRate.ToString();};
-                        await bandClient.SensorManager.HeartRate.StartReadingsAsync();
+                    // Subscribe to HeartRate data.
+                    bandClient.SensorManager.Pedometer.ReadingChanged += (s, args) => { steps = args.SensorReading.TotalSteps.ToString(); };
+                        await bandClient.SensorManager.Pedometer.StartReadingsAsync();
+                    hReading.Text = pairedBands.ToString();
 
-                        // Receive HeartRate data for a while, then stop the subscription.
-                        await Task.Delay(TimeSpan.FromSeconds(3));
-                        await bandClient.SensorManager.HeartRate.StopReadingsAsync();
-                       
-                        //this.viewModel.StatusMessage = string.Format("Done. {0} HeartRate samples were received.", samplesReceived);
-                    }
-
-                    bandClient.SensorManager.SkinTemperature.ReadingChanged += (s, args) =>
-                    {
-                        bodyTemp = args.SensorReading.Temperature.ToString();
-                    };
-                    await bandClient.SensorManager.SkinTemperature.StartReadingsAsync();
+                    // Receive HeartRate data for a while, then stop the subscription.
+                    await bandClient.SensorManager.Pedometer.StopReadingsAsync();
 
                     SpeechSynthesizer synt = new SpeechSynthesizer();
-                    SpeechSynthesisStream syntStream = await synt.SynthesizeTextToStreamAsync("Heart Rate is: " + hr+ " per minute and Skin Temperature is: "+bodyTemp+" degrees");
+                    SpeechSynthesisStream syntStream = await synt.SynthesizeTextToStreamAsync("Patient did "+steps+" steps today.");
                     mediaElement.SetSource(syntStream, syntStream.ContentType);
-                    hReading.Text = hr + " /min";
-                    tReading.Text = bodyTemp + " C";
+                    hReading.Text = steps + "\nSteps";
                 }
             }
             catch (Exception ex)
             {
                 //this.viewModel.StatusMessage = ex.ToString();
+                //hReading.Text = ex.ToString();
             }
         }
     }

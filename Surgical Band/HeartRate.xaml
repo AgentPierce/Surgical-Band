@@ -9,12 +9,10 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <MediaElement x:Name="mediaElement"></MediaElement>
-        <Rectangle Fill="#FFDC1928" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="1920" />
+        <Rectangle Fill="#FFDC1928" HorizontalAlignment="Left" Height="72" VerticalAlignment="Top" Width="1920" />
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="25,20,0,0" TextWrapping="Wrap" Text="Patient Data" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="20" />
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="25,112,0,508" VerticalAlignment="Top" Width="100" Stretch="UniformToFill" Source="Assets/heart.png"/>
-        <TextBlock x:Name="hReading" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="176,150,0,0" TextWrapping="Wrap" Text=""  Foreground="Gray" FontWeight="Bold" FontSize="20" />
-        <TextBlock x:Name="tReading" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="176,375,1061,0" TextWrapping="Wrap" Text="" Foreground="Gray" FontWeight="Bold" FontSize="20" />
-        <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="100" Margin="25,336,1155,284" VerticalAlignment="Top" Width="100" Stretch="UniformToFill" Source="Assets/Square44x44Logo.png"/>
+        <TextBlock x:Name="hReading" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="100,150,0,0" TextWrapping="Wrap" Text="" FontWeight="Bold" FontSize="40" Foreground="#dc1928" />
+        <TextBlock x:Name="tReading" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="100,375,1061,0" TextWrapping="Wrap" Text="" FontWeight="Bold" FontSize="40" Foreground="#003867" />
 
     </Grid>
 </Page>

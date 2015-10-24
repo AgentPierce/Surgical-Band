@@ -93,7 +93,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\band_long.png" />
+    <Content Include="Assets\health-sign.png" />
     <Content Include="Assets\heart.png" />
+    <Content Include="Assets\microsoft_health.jpg" />
     <Content Include="vcd.xml">
       <SubType>Designer</SubType>
     </Content>

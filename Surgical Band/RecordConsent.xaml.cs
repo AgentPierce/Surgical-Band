@@ -8,6 +8,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.SpeechRecognition;
 using Windows.Media.SpeechSynthesis;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,8 +26,8 @@ namespace Surgical_Band
     /// </summary>
     public sealed partial class RecordConsent : Page
     {
-        [DllImport("winmm.dll", EntryPoint = "mciSendStringA", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
-        private static extern int mciSendString(string lpstrCommand, string lpstrReturnString, int uReturnLength, int hwndCallback);
+        //[DllImport("winmm.dll", EntryPoint = "mciSendStringA", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        //private static extern int mciSendString(string lpstrCommand, string lpstrReturnString, int uReturnLength, int hwndCallback);
 
         public RecordConsent()
         {
@@ -71,8 +72,15 @@ namespace Surgical_Band
             if (args.Result.Text == "correct")
             {
                 await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () => talkBack());
+                await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => changeText());
                 //SetListening(true);
             }
+        }
+
+        private void changeText() {
+            recorded.Visibility = Visibility.Visible;
+            recorded.Text = "Recorded";
+            recorded.Foreground = new SolidColorBrush(Colors.SteelBlue);
         }
 
         private async void talkBack()

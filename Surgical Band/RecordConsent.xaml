@@ -9,6 +9,9 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <MediaElement x:Name="mediaElement"></MediaElement>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="107,151,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Rectangle Fill="#FFDC1928" HorizontalAlignment="Left" Height="72" VerticalAlignment="Top" Width="1920" />
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="25,23,0,0" TextWrapping="Wrap" Text="Record Consent" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="20" />
+        <Image x:Name="image" HorizontalAlignment="Left" Height="200" Margin="45,192,0,0" VerticalAlignment="Top" Width="200" Source="Assets/health-sign.png"/>
+        <TextBlock x:Name="recorded" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="50,432,0,0" TextWrapping="Wrap" Text="Recording" FontWeight="Bold" FontSize="40" Foreground="#dc1928"/>
     </Grid>
 </Page>

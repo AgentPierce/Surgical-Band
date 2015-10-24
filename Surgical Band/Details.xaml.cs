@@ -29,6 +29,7 @@ namespace Surgical_Band
         private IBandInfo bandinfo;
         private IBandClient client;
         SpeechSynthesizer synth = new SpeechSynthesizer();
+        private bool WasLocked;
 
         public Details()
         {
@@ -41,7 +42,7 @@ namespace Surgical_Band
             if (bands.Length == 0)
             {
 
-                Speak("Warning. Patient has gone missing.");
+                Speak("Warning. Patient not found.");
                 return;
             }
             bandinfo = bands[0];
@@ -63,7 +64,7 @@ namespace Surgical_Band
                 return;
             }
 
-            PatientSkinTemp.Text = e.SensorReading.Temperature.ToString()+" C";
+            PatientSkinTemp.Text = e.SensorReading.Temperature.ToString()+" °C";
         }
 
         private void BandInitialized(object sender, BandSensorReadingEventArgs<IBandHeartRateReading> e)
@@ -73,7 +74,7 @@ namespace Surgical_Band
         }
         private void BandInitialized(object sender, BandSensorReadingEventArgs<IBandSkinTemperatureReading> e)
         {
-            Speak("Band Initialized. Current heart rate is {0}.", e.SensorReading.Temperature);
+            Speak("Band Initialized. Current body temperature is {0}.", e.SensorReading.Temperature);
             client.SensorManager.SkinTemperature.ReadingChanged -= BandInitialized;
         }
 
@@ -85,9 +86,19 @@ namespace Surgical_Band
                 return;
             }
             if (e.SensorReading.Quality == HeartRateQuality.Acquiring)
+            {
                 PatientHR.Text = "Aquiring...";
+                if (WasLocked)
+                {
+                    Speak("Warning: Patient has removed their Band.");
+                    PatientHR.Text = "Lost";
+                }
+            }
             else
-                PatientHR.Text = e.SensorReading.HeartRate.ToString() + " /Min";
+            {
+                PatientHR.Text = e.SensorReading.HeartRate.ToString() + " BPM";
+                WasLocked |= true;
+            }
         }
 
         public async void Speak(string text, params object[] args)

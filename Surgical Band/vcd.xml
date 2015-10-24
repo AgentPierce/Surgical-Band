@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="en-us" Name="CommandSet_en-us">
+    <AppName> Surgical Band</AppName>
+    <Example> Record the Consent Surgical Band </Example>
+
+    <Command Name="recordConsent">
+      <Example> Surgical Band, Record the Consent </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> Let's record consent </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> Record the consent </ListenFor>
+      <Feedback> Recording Consent </Feedback>
+      <Navigate/>
+    </Command>
+    
+    <Command Name="stopConsent">
+      <Example> Surgical Band, Stop recording Consent </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> Stop recording consent </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> Stop the consent </ListenFor>
+      <Feedback> Finished Recording. Was that a correct patient consent? </Feedback>
+      <Navigate/>
+    </Command>
+    
+    <Command Name="patientStat">
+      <Example> Surgical Band, give me the status </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> Patient Status </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> Vital signs </ListenFor>
+      <Feedback> Fetching data from Microsoft Band </Feedback>
+      <Navigate/>
+    </Command>
+
+      <!--<Command Name="sendMessage">
+      <Example>Best Friend, Can I ask, how are you?</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase" > Can I ask, {message}</ListenFor>
+      <Feedback> OK </Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="where">
+      <Example> I want to go to Berlin Best Friend! </Example>
+      <ListenFor RequireAppName="ExplicitlySpecified"> I want to go to {city} {builtin:AppName}</ListenFor>
+      <VoiceCommandService Target="VoiceServiceEndpoint"/>
+    </Command>
+
+    <Command Name="sendMessageInCanvas">
+      <Example>Best Friend, Let me tell you, you are nice!</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase" >Let me tell you, {message}</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase" >Did you know that {message}</ListenFor>
+      <VoiceCommandService Target="VoiceServiceEndpoint" />
+    </Command>
+
+    <PhraseList Label="city" Disambiguate="true">
+      <Item>London</Item>
+      <Item>Moscow</Item>
+      <Item>New York</Item>
+    </PhraseList>
+
+    <PhraseTopic Label="message" Scenario="Natural Language" />-->
+    
+  </CommandSet>
+
+</VoiceCommands>

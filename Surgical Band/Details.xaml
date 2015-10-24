@@ -34,7 +34,7 @@
             <TextBlock Name="PatientAge" FontSize="36" Text="47" />
             <TextBlock Name="PatientSex" FontSize="36" Text="Male"/>
             <TextBlock Name="PatientBlood" FontSize="36" Text="O+"/>
-            <TextBlock Name="PatientAlergies" FontSize="36" Text="None known"/>
+            <TextBlock Name="PatientAlergies" FontSize="36" Text="Peanut"/>
             <TextBlock Name="PatientProcedure" FontSize="36" Text="Appendix Out"/>
             <TextBlock Name="PatientHR" FontSize="36" Text="--"/>
             <TextBlock Name="PatientSkinTemp" FontSize="36" Text="--" />

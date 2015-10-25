@@ -60,32 +60,32 @@ namespace Surgical_Band
                 case "sponge in":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     spongeIn++;
-                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => spongInC.Text = spongeIn.ToString());
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => SetNumber(spongInC, spongeIn));
                     break;
                 case "sponge out":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     spongeOut++;
-                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => spongOutC.Text = spongeOut.ToString());
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => SetNumber( spongOutC,spongeOut));
                     break;
                 case "instrument in":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     instruIn++;
-                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => instInC.Text = instruIn.ToString());
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => SetNumber( instInC, instruIn));
                     break;
                 case "needle in":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     needleIn++;
-                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => needleInC.Text = needleIn.ToString());
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => SetNumber( needleInC,needleIn));
                     break;
                 case "instrument out":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     instruOut++;
-                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => instOutC.Text = instruOut.ToString());
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => SetNumber( instOutC,instruOut));
                     break;
                 case "needle out":
                     await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => talkBack("Noted"));
                     needleOut++;
-                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => needleOutC.Text = needleOut.ToString());
+                    await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => SetNumber( needleOutC,needleOut));
                     break;
                 case "going to close":
                     if (spongeIn != spongeOut)
@@ -109,6 +109,16 @@ namespace Surgical_Band
                     }
                     break;
             }
+        }
+
+        private void SetNumber(TextBlock label, int value)
+        {
+            foreach (var l in new TextBlock[] { spongInC, spongOutC, needleInC, needleOutC, instInC, instOutC})
+            {
+                l.FontSize = 30;
+            }
+            label.FontSize = 40;
+            label.Text = value.ToString();
         }
 
         private async void talkBack(String content)
